@@ -32,9 +32,28 @@ After the header, the actual image data for each image map is stored in sequence
 
 ### Example Layout:
 
-[ HAI HEADER (25 bytes) ] | Signature ("HAI") | 3 bytes | Width | 2 bytes | Height | 2 bytes | Channels | 1 byte | Albedo Offset | 4 bytes | Shininess Offset | 4 bytes | Reflection Offset | 4 bytes | Transparency Offset | 4 bytes | Displacement Offset | 4 bytes
+[ HAI HEADER (25 bytes) ]
+| Field                | Description                                   | Size    |
+|----------------------|-----------------------------------------------|---------|
+| Signature            | "HAI" (3 bytes, ASCII)                        | 3 bytes |
+| Width                | Image width                                   | 2 bytes |
+| Height               | Image height                                  | 2 bytes |
+| Channels             | Number of channels per image (RGB = 3)        | 1 byte  |
+| Albedo Offset        | Offset to the Albedo image data               | 4 bytes |
+| Shininess Offset     | Offset to the Shininess image data            | 4 bytes |
+| Reflection Offset    | Offset to the Reflection image data           | 4 bytes |
+| Transparency Offset  | Offset to the Transparency image data         | 4 bytes |
+| Displacement Offset  | Offset to the Displacement image data         | 4 bytes |
 
-[ COMPRESSED/UNCOMPRESSED IMAGE DATA ] | Albedo Data | Variable size | Shininess Data | Variable size | Reflection Data | Variable size | Transparency Data | Variable size | Displacement Data | Variable size
+[ COMPRESSED/UNCOMPRESSED IMAGE DATA ]
+| Field                | Description                                   | Size          |
+|----------------------|-----------------------------------------------|---------------|
+| Albedo Data          | Albedo image data                             | Variable size |
+| Shininess Data       | Shininess image data                          | Variable size |
+| Reflection Data      | Reflection image data                         | Variable size |
+| Transparency Data    | Transparency image data                       | Variable size |
+| Displacement Data    | Displacement image data                       | Variable size |
+
 
 
 ### Compression (Optional)
